@@ -80,7 +80,26 @@ public class PageMeteo extends AppCompatActivity {
                     affichageMeteo.append("Temperature : " + temperature + " (Ressentie : "+temperatureRessentie+")\n");
                     affichageMeteo.append("Humidite : " + humidite + "\n");
                     affichageMeteo.append("Pression : " + pression + "\n");
-                    affichageMeteo.append("Vent : " + vent);
+                    affichageMeteo.append("Vent : " + vent + "\n");
+
+
+                    JSONArray listeAlertes = obj.getJSONArray("alerts");
+                    for(int position = 0; position < listeAlertes.length(); position++)
+                    {
+                        JSONObject alerte = listeAlertes.getJSONObject(position);
+                        String titre = alerte.getString("title");
+                        System.out.println("Alerte : " + titre);
+                        //String severite = alerte.getString("severite");
+                        String url = alerte.getString("uri");
+                        String description = alerte.getString("description");
+                        //JSONArray regions = alerte.getJSONArray("regions");
+
+                        //affichageMeteo.append("!!!!!! ALERTE !!!!!!");
+                        //affichageMeteo.append(titre + "(" + url + ")");
+                        affichageMeteo.append(description);
+
+                    }
+
 
 
                     MeteoDAO meteoDAO = new MeteoDAO(getApplicationContext());
