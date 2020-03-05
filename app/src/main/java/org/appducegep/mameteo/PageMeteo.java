@@ -103,7 +103,7 @@ public class PageMeteo extends AppCompatActivity {
 
 
                     MeteoDAO meteoDAO = new MeteoDAO(getApplicationContext());
-                    meteoDAO.ajouterMeteo(soleilOuNuage);
+                    meteoDAO.ajouterMeteo(soleilOuNuage, vent);
 
                 }catch(JSONException e)
                 {
