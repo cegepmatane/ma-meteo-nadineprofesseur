@@ -71,6 +71,7 @@ public class PageMeteo extends AppCompatActivity {
                     String temperatureRessentie = maintenant.getString("apparentTemperature");
                     String humidite = maintenant.getString("humidity");
                     String pression = maintenant.getString("pressure");
+                    String vent = maintenant.getString("windSpeed");
 
                     TextView affichageMeteo = (TextView)findViewById(R.id.vueMeteoActuelle);
                     affichageMeteo.setText("");
@@ -79,6 +80,7 @@ public class PageMeteo extends AppCompatActivity {
                     affichageMeteo.append("Temperature : " + temperature + " (Ressentie : "+temperatureRessentie+")\n");
                     affichageMeteo.append("Humidite : " + humidite + "\n");
                     affichageMeteo.append("Pression : " + pression + "\n");
+                    affichageMeteo.append("Vent : " + vent);
 
 
                     MeteoDAO meteoDAO = new MeteoDAO(getApplicationContext());
